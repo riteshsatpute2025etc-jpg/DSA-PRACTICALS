@@ -1,0 +1,31 @@
+----- STACK MENU -----
+1. PUSH
+2. POP
+3. DISPLAY
+4. DISPLAY TOP
+5. EXIT
+Enter your choice: 1
+
+Enter item to PUSH: 10
+10 pushed into the stack.
+
+Enter your choice: 1
+Enter item to PUSH: 20
+20 pushed into the stack.
+
+Enter your choice: 1
+Enter item to PUSH: 30
+30 pushed into the stack.
+
+Enter your choice: 3
+Stack elements are:
+30
+20
+10
+
+Enter your choice: 4
+TOP position = 2
+TOP element = 30
+
+Enter your choice: 2
+30 popped from the stack.
