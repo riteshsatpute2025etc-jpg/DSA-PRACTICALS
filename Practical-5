@@ -1,0 +1,140 @@
+#include <stdio.h>
+#define N 5
+
+int stack[N];
+int top = -1;
+
+// Function to check if stack is empty
+void stack_empty()
+{
+    if (top == -1)
+        printf("Stack is Empty\n");
+}
+
+// Function to check if stack is full
+void stack_full()
+{
+    if (top == N - 1)
+        printf("Stack is Full\n");
+}
+
+// PUSH operation
+void push(int item)
+{
+    if (top >= N - 1)
+    {
+        stack_full();
+        return;
+    }
+
+    top = top + 1;
+    stack[top] = item;
+
+    printf("%d pushed into the stack.\n", item);
+}
+
+// POP operation
+int pop()
+{
+    int item;
+
+    if (top < 0)
+    {
+        stack_empty();
+        return -1;
+    }
+
+    item = stack[top];
+    top = top - 1;
+
+    return item;
+}
+
+// DISPLAY operation
+void stack_display()
+{
+    int counter;
+
+    if (top == -1)
+    {
+        stack_empty();
+        return;
+    }
+
+    printf("Stack elements are:\n");
+
+    counter = top;
+
+    while (counter >= 0)
+    {
+        printf("%d\n", stack[counter]);
+        counter--;
+    }
+}
+
+// Display TOP position and element
+void display_top()
+{
+    if (top == -1)
+    {
+        printf("Stack is Empty\n");
+    }
+    else
+    {
+        printf("TOP position = %d\n", top);
+        printf("TOP element = %d\n", stack[top]);
+    }
+}
+
+// Main function
+int main()
+{
+    int choice, item;
+
+    do
+    {
+        printf("\n----- STACK MENU -----\n");
+        printf("1. PUSH\n");
+        printf("2. POP\n");
+        printf("3. DISPLAY\n");
+        printf("4. DISPLAY TOP\n");
+        printf("5. EXIT\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+            case 1:
+                printf("Enter item to PUSH: ");
+                scanf("%d", &item);
+                push(item);
+                break;
+
+            case 2:
+                item = pop();
+
+                if (item != -1)
+                    printf("%d popped from the stack.\n", item);
+                break;
+
+            case 3:
+                stack_display();
+                break;
+
+            case 4:
+                display_top();
+                break;
+
+            case 5:
+                printf("Program terminated.\n");
+                break;
+
+            default:
+                printf("Invalid choice!\n");
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}
