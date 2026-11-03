@@ -1,3 +1,0 @@
-Enter a postfix expression : 934*8+4/-
-
-The value of the expression is 4.000000
